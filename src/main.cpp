@@ -30,13 +30,14 @@ int main(int argc, char* argv[])
     {
         while (SDL_PollEvent(&evnt))
         {
-            switch (evnt.type) //check event type
+            
+            if (evnt.type == SDL_QUIT)
             {
-            case SDL_QUIT:
-                running = false; 
+                running = false;
                 break;
-
-            case SDL_KEYDOWN:
+            }
+            else if (evnt.type == SDL_KEYDOWN)
+            {
                 switch (evnt.key.keysym.sym) // if key pressed down, then check what key it is
                 {
                 case SDLK_SPACE: // if its space then I have to see if I need to start the timer
@@ -87,14 +88,15 @@ int main(int argc, char* argv[])
                     }
                 }
 
-
-            case SDL_KEYUP:
+            }
+            else if (evnt.type == SDL_KEYUP)
+            {
                 if (evnt.key.repeat == 0 && evnt.key.keysym.sym != SDLK_SPACE)
                 {
                     // idk if I need this, what works works so don't touch
                     break;
                 }
-                else if (evnt.key.repeat == 0 && timerStarted == false && primed == true) // if the timer HASNT started yet and its been primed, then start it
+                else if (evnt.key.repeat == 0 && timerStarted == false && primed == true && evnt.key.keysym.sym == SDLK_SPACE) // if the timer HASNT started yet and its been primed, then start it
                 {
                     //start the timer if there is one running
                     std::cout << "Primed off, Timer started" << std::endl;
@@ -103,6 +105,7 @@ int main(int argc, char* argv[])
                     break;
                 }
             }
+            
         }
     }
 
