@@ -1,4 +1,4 @@
 # cube-timer
 A rubik's cube timer built in C++ using SDL
 
-CMake is very annoying with external libraries.
+I **might** (most likely won't) finish this some day. I just don't like c++ or learning it anymore.
