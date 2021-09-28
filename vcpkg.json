@@ -1,0 +1,9 @@
+{
+    "name": "cube-timer",
+    "version": "1.0",
+    "description": "Rubik's cube timer",
+    "homepage": "https://github.com/Ay-355/cube-timer",
+    "dependencies": [
+        "sdl2"
+    ]
+}
